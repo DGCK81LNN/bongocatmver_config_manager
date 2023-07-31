@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+LNNCONFDIR="$(dirname "$0")/_lnnconf"
+cmd="$1"
+if [ ! "$cmd" -o "$cmd" = "--help" -o "$cmd" = "help" ]; then
+  me="./$(ls --quoting-style=shell "$(basename "$0")")"
+  echo "\
+Usage: $me <command> [args...]
+
+Commands:
+  save [options...] [--] <name> [entry...]
+    Save a new configuration.
+
+    Aliases: s, add
+
+    Parameters:
+      name    Name of the new configuration.
+              Must not be the same as an existing saved configuration.
+      entry   Names of files and directories to include.
+              Defaults to 'img'.
+              All specified entries must exist.
+              'config.json' is implicitly included unless --no-config-json is
+              specified. To include only 'config.json' and not 'img', pass
+              'config.json'.
+
+    Options:
+      --no-config-json  Do not include config.json in the saved configuration.
+
+    Example:
+      $me save myconfig img/standard Resources config.json
+
+  list
+    List saved configurations.
+
+    Aliases: l, ls
+
+  apply <name>
+    Apply a configuration.
+    This may delete some of the existing files on disk.
+
+    Alias: a, load
+
+  delete <name...>
+    Delete saved configuration(s).
+
+    Aliases: d, del, rm" >&2
+  exit
+fi
+
+case "$cmd" in
+  s | add)      cmd=save;;
+  l | ls)       cmd=list;;
+  a | load)     cmd=apply;;
+  d | del | rm) cmd=delete;;
+esac
+
+if [ -f "$LNNCONFDIR/_$cmd.py" ]; then
+  python "$LNNCONFDIR/_$cmd.py" "$@"
+else
+  echo "Unknown command '$cmd'" >&2
+  exit 2
+fi
