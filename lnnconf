@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 LNNCONFDIR="$(dirname "$0")/_lnnconf"
 cmd="$1"
+shift
 if [ ! "$cmd" -o "$cmd" = "--help" -o "$cmd" = "help" ]; then
   me="./$(ls --quoting-style=shell "$(basename "$0")")"
   echo "\

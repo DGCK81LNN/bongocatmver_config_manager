@@ -13,7 +13,7 @@ a_zip = os.path.join(os.path.dirname(__file__), 'configurations.zip')
 
 args = argv[1:]
 options = True
-while options:
+while options and len(args) > 0:
   if args[0] == "--":
     options = False
   elif args[0].startswith("--"):

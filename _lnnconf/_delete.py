@@ -7,7 +7,7 @@ a_tmp = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'temp.zip')
 
 args = argv[1:]
 options = True
-while options:
+while options and len(args) > 0:
   if args[0] == "--":
     options = False
   elif args[0].startswith("--"):
