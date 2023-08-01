@@ -14,6 +14,8 @@
 
 下载本仓库后，将名为 lnnconf 的各脚本文件和 _lnnconf 文件夹复制至 Bongo Cat Mver 主程序所在的文件夹。使用时，在该文件夹打开命令行（Windows 下在文件夹内空白处按 **Shift+鼠标右键**后选择“**在此处打开命令窗口**”或“**在此处打开 Powershell 窗口**”），然后输入 `.\lnnconf` 后接空格和要执行的指令。
 
+如果您在您的电脑上安装了 Git for Windows 或 MinGW，您可以使用 Bash（Bourne-Again Shell）运行没有扩展名的 `lnnconf` 脚本，进入交互命令行，即可获得更好的使用体验，无需在后续每条指令前加上 `.\lnnconf`；普通（PowerShell）版本暂无此功能。
+
 以下为可用的指令：
 
 ### `save`（或 `s`、`add`）
@@ -75,6 +77,12 @@
 示例：
 
   *     .\lnnconf delete config1 config2
+
+---
+
+您也可以使用 `help`、`h` 或 `?` 指令来阅读帮助（不过出于未知原因(?)，用这种方法会显示英文帮助）。
+
+另外，在交互命令行模式下，您可以输入 `exit`、`quit` 或 `q` 来退出。
 
 <br>
 
