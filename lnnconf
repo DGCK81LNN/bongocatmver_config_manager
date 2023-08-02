@@ -118,6 +118,8 @@ exit   - - - - - - - - - - - - - - - - -  Exit lnnconf shell" >&2; fi
   fi
 }
 
+cd "$(dirname "$0")"
+
 LNNCONFDIR="$(dirname "$0")/_lnnconf"
 exit_stat=0
 if [ "$1" ]; then

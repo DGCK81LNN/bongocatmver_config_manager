@@ -75,9 +75,9 @@ with zipfile.ZipFile(a_zip, "a", zipfile.ZIP_DEFLATED) as zipf:
   if zipfile.Path(zipf, f"{name}/").exists():
     raise RuntimeError(f"Configuration '{name}' already exists")
   r_files = files(a_root, r_entries)
-  zipf.mkdir(name)
   for r_file in r_files:
     z_file = f"{name}/{r_file.replace(os.sep, '/')}"
+    a_file = os.path.join(a_root, r_file)
     print(f"adding: {os.path.join(os.curdir, r_file)} --> {z_file}")
-    zipf.write(r_file, z_file)
+    zipf.write(a_file, z_file)
   print(f"Configuration successfully saved as '{name}'")
