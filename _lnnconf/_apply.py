@@ -50,6 +50,7 @@ with zipfile.ZipFile(a_zip) as zipf:
     r_file = os.path.relpath(z_file, name)
     a_file = os.path.join(a_root, r_file)
     print(f"extracting: {z_file} --> {os.path.join(os.curdir, r_file)}")
+    os.makedirs(os.path.dirname(a_file), exist_ok=True)
     with open(a_file, "wb") as file:
       file.write(zipf.read(z_file))
 
