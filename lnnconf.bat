@@ -1,2 +1,3 @@
 @echo off
-powershell %~dpn0.ps1 -- %*
+python %~dp0\lnnconf.py %*
+exit /b %ERRORLEVEL%
