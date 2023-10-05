@@ -269,7 +269,7 @@ def cmdExit(*args: str):
   """
   global shell_mode
   if len(args) > 0 and args[0] == "--help":
-    return cmdHelp("save")
+    return cmdHelp("exit")
   if shell_mode:
     shell_mode = False
   else:
