@@ -256,7 +256,7 @@ def cmdHelp(*args: str):
   else:
     command = args[0]
     if command in commands:
-      print(dedent(commands[command].__doc__).strip("\n"))
+      print(dedent(commands[command].__doc__ or "").strip("\n"))
     else:
       raise ValueError(f"Unknown command '{command}'")
 
